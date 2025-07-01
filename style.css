@@ -1,0 +1,241 @@
+*{
+ font-family: 'Roboto';  
+  box-sizing: border-box;
+ 
+}
+
+#container{
+  display: flex;
+  justify-content: center;
+}
+
+#main-container{
+  width: 100%;  
+  border: solid;
+}
+
+/*Top Container*/
+.top-container{
+  padding: 0px 6px;
+  display: flex;
+  align-items: center;  
+}
+
+.arrow a{
+  color: dodgerblue; 
+  margin-right: 8px;
+  text-decoration: none;
+}
+
+.header-container{
+  padding: 5px 0;
+  display:flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 25px;    
+}
+
+/*Top Photo*/
+.collage{
+  width: 100%; 
+  display: block;
+  max-width: 100%;
+}
+
+/*Bio Section*/
+.bio-section{
+  display: flex;  
+  justify-content: space-between;
+  flex-wrap: wrap; 
+}
+
+.photo-wrapper{
+  display: flex;
+  flex-direction: column;  
+  margin-left: 8px;
+}
+
+.photo-wrapper-text{
+  display: flex;
+  margin-top: -38px;
+  gap: 6px;
+  margin-left: 12px;
+}
+
+.main-photo{
+  position: relative;
+  left: 5px;
+  bottom: 23px;
+  height: 95px;
+  width: 95px;
+  border-radius: 50px;
+}
+
+.btn-container{
+  display: flex;
+  gap: 7px;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+
+.user-btn{  
+  height: 45px;
+  width: 85px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+
+.user-btn:hover{  
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: 13px grey;
+  transition: ease-in .05s;
+}
+
+.about-details{
+  content: "\f041";
+}
+ 
+.user-row{  
+  display: flex;
+  align-items: center;  
+  gap: 9px;
+}
+
+/*Tweets Menu*/
+.tweetCount, .handle{
+  color: darkgrey;
+}
+
+.check-mark, .checkmark-Tweet{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  background-color: dodgerblue;
+  border-radius: 50%;
+  color: white;    
+}
+
+.check-mark {
+  width: 30px;
+  height: 30px;
+  font-size: 1.3rem; 
+  line-height: 1;  
+}
+
+.checkmark-Tweet{
+  width: 20px;
+  height: 20px;
+  font-size: 0.9rem; 
+  line-height: 0.5;  
+}
+
+.display-name{
+  letter-spacing: -0.001em;  
+}
+
+.user-handle { 
+  margin-top: 15px;
+  position: relative;
+  bottom: 35px;
+  margin-left: 22px;
+  color: grey; 
+}
+
+.user-handle p {
+  font-family: 'Montserrat';
+  margin: 5px 0;
+}
+
+.follower-details{
+  display: flex;
+  gap: 9px;
+}
+
+.follower-figures{
+  color: black;
+}
+
+/*Tabs*/
+.tabs-container{
+  display: flex; 
+  position: relative; 
+  margin-top: -30px;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 1px solid grey;
+}
+
+.tabs{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px; 
+  flex-wrap: nowrap; 
+  flex: auto;   
+}
+
+.tabs:hover{
+  cursor: pointer;
+  background-color: lightgrey;
+  font-weight: bold;
+  transition: ease-out 1.3s;
+}
+
+.header-container h2, 
+.header-container h5 {
+ margin: 0;
+}
+
+.container-tweets{
+  display: flex;
+  flex-direction: column;
+}
+
+/*Tweet Sections*/
+.tweet-section{
+  display: flex;
+  padding: 10px;
+  /*background-color: lightgreen; /*This will be changed or removed*/
+  border: solid;
+  height: 120px;
+}
+
+.tweet-avatar{  
+  height: 45px;
+  width: 45px;
+  border-radius: 50px;    
+}
+
+.tweet-details{
+  display: flex;   
+  align-items: center;
+  position: relative;
+  gap: 4.5px;
+  top: -10px;
+  left: 8px;
+}
+
+.tweet-bottom{
+  display: flex;  
+  flex-direction: column;
+}
+
+.tweet-text{
+  position: relative;
+  bottom: 23px;
+  color: grey;
+}
+
+/*Media Queries*/
+@media screen and (min-width: 500px) {
+    #main-container {
+        max-width: 500px;   
+    }
+}
+
+
