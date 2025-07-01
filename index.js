@@ -68,14 +68,14 @@ var userInt = 0;
 function userElon() {
     var urlParams = new URLSearchParams();
     urlParams.set("user", "user1");
-    window.location.href = "https://kaidoso.github.io/dynamic-twitter/?" + urlParams.toString();
+    window.location.href = "https://copymike05.github.io/twitter-project/" + urlParams.toString();
 };
 
 // function to change URL to user 2
 function userBill() {
     var urlParams = new URLSearchParams();
     urlParams.set("user", "user2");
-    window.location.href = "https://kaidoso.github.io/dynamic-twitter/?" + urlParams.toString();
+    window.location.href = "https://copymike05.github.io/twitter-project/" + urlParams.toString();
 };
 
 var goToMusk = document.getElementsByClassName('muskButton')[0];
