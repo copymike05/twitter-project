@@ -59,23 +59,24 @@ var accountUsers = {
   }
 };
 
-var selectedUser = 0;
-var users = [accountUsers.user1, accountUsers.user2];
+
 
 var urlParams = new URLSearchParams(window.location.search);
-var userInt = 0;
+var userParam = urlParams.get('user');
+var selectedUser = accountUsers[userParam] || accountUsers.user1; 
+
 
 function userElon() {
     var urlParams = new URLSearchParams();
     urlParams.set("user", "user1");
-    window.location.href = "https://copymike05.github.io/twitter-project/" + urlParams.toString();
+    window.location.href = "https://copymike05.github.io/twitter-project/?" + urlParams.toString();
 };
 
 // function to change URL to user 2
 function userBill() {
     var urlParams = new URLSearchParams();
     urlParams.set("user", "user2");
-    window.location.href = "https://copymike05.github.io/twitter-project/" + urlParams.toString();
+    window.location.href = "https://copymike05.github.io/twitter-project/?" + urlParams.toString();
 };
 
 var goToMusk = document.getElementsByClassName('muskButton')[0];
@@ -94,19 +95,19 @@ gatesUserName.classList.add("display-name");
 var checkMark = document.createElement("h2");
 checkMark.classList.add("check-mark");
 checkMark.textContent = "✔"
-gatesUserName.innerHTML = `${users[1].displayName} `;
+gatesUserName.innerHTML = `${selectedUser.displayName} `;
 userRow.appendChild(gatesUserName);
 userRow.appendChild(checkMark);
 header.appendChild(userRow); 
   
 var tweetCount = document.createElement("h5");
 tweetCount.classList.add("tweetCount");
-tweetCount.textContent = `${users[1].tweets.length} Tweets`;
+tweetCount.textContent = `${selectedUser.tweets.length} Tweets`;
 header.appendChild(tweetCount);
   
 //Main profile photo
 var mainPhoto = document.getElementsByClassName("main-photo")[0];
-mainPhoto.src = users[1].profilePhoto;
+mainPhoto.src = selectedUser.profilePhoto;
 
 var photoWrapper = document.getElementsByClassName("photo-wrapper-text")[0];
 var aboutContainer = document.getElementsByClassName("about-container")[0];
@@ -119,13 +120,13 @@ photoWrapper.appendChild(checkMarkCopy);
 var userHandle = document.getElementsByClassName("user-handle")[0];
 var userHandleName = document.createElement("p");
 userHandleName.classList.add("handle");
-userHandleName.textContent = users[1].userName;
+userHandleName.textContent = selectedUser.userName;
 
 var userHandleIntro = document.createElement("p");
-userHandleIntro.textContent = users[1].intro;
+userHandleIntro.textContent = selectedUser.intro;
 
 var userLocation = document.createElement("p");
-userLocation.textContent = `${users[1].city}`;
+userLocation.textContent = `${selectedUser.city}`;
 
 userHandle.prepend(userHandleIntro); 
 userHandle.prepend(userLocation); 
@@ -134,20 +135,20 @@ userHandle.prepend(userHandleName);
 //Follower Figures
 var followerDetails = document.getElementsByClassName("follower-details")[0];
 var followingUser1 = document.createElement("p");
-followingUser1.innerHTML = `<strong class="follower-figures">${formatNumber(accountUsers.user2.following)}</strong> Following`;
+followingUser1.innerHTML = `<strong class="follower-figures">${formatNumber(selectedUser.following)}</strong> Following`;
 followerDetails.appendChild(followingUser1);
 
 var followersUser1 = document.createElement("p");
-followersUser1.innerHTML = `<strong class="follower-figures">${formatNumber(users[1].followers)}</strong> Following`;
+followersUser1.innerHTML = `<strong class="follower-figures">${formatNumber(selectedUser.followers)}</strong> Following`;
 followerDetails.appendChild(followersUser1);
 
 //Tweets
 
 //Photo is being applied in every Twitter container
 var tweetPhoto = document.getElementsByClassName("tweet-avatar");
-tweetPhoto.src = accountUsers.user2.profilePhoto;
+tweetPhoto.src = selectedUser.profilePhoto;
 for (let i = 0; i < tweetPhoto.length; i++) {
-  tweetPhoto[i].src = users[1].profilePhoto;
+  tweetPhoto[i].src = selectedUser.profilePhoto;
 }
 
 const months = [
@@ -160,7 +161,7 @@ var tweetSection = document.getElementsByClassName("tweet-details");
 for (let i = 0; i < tweetSection.length; i++) {
   var rowCounter = i;
   var tweetText = document.createElement("h4");
-  tweetText.innerHTML = `${users[1].displayName}`;
+  tweetText.innerHTML = `${selectedUser.displayName}`;
   tweetSection[i].appendChild(tweetText);
   
   var tweetCheckmark = document.createElement("h3");
@@ -170,13 +171,13 @@ for (let i = 0; i < tweetSection.length; i++) {
   
   var tweetHandle = document.createElement("p");
   tweetHandle.classList.add("handle");
-  tweetHandle.textContent = `${accountUsers.user2.userName}`;
+  tweetHandle.textContent = `${selectedUser.userName}`;
   tweetSection[i].appendChild(tweetHandle);
   
-   for (let i = 0; i < users[1].tweets.length; i++) {
+   for (let i = 0; i < selectedUser.tweets.length; i++) {
      if(i === rowCounter){
        var tweetDate = document.createElement("p");
-       const date = new Date(`${users[1].tweets[i].time}`); 
+       const date = new Date(`${selectedUser.tweets[i].time}`); 
        const monthAbbrev = months[date.getMonth()].slice(0, 3);
        tweetDate.textContent = `${monthAbbrev} ${date.getDate()}`;     
        tweetSection[i].appendChild(tweetDate);
@@ -192,7 +193,7 @@ for (let i = 0; i < tweetSection.length; i++) {
   for (let i = 0; i < tweetParagraphs.length; i++) {
   tweetParagraphs[i].innerHTML = '';
   var tweetText = document.createElement("p");
-  tweetText.textContent = users[1].tweets[i].tweet;
+  tweetText.textContent = selectedUser.tweets[i].tweet;
   tweetParagraphs[i].appendChild(tweetText);
   }
 
@@ -214,7 +215,7 @@ function formatNumber(num)  {
 
 // console.log(window.location.href);
 //console.log(accountUsers.user1.displayName);
-console.log(users[0].displayName)
+//console.log(users[0].displayName)
 
 //Console.log playing
 //console.log(accountUsers.user1.tweets[0].tweet); 
