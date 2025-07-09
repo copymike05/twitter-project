@@ -9,7 +9,8 @@ var accountUsers = {
     following: 103,
     followers: 47900000,
     tweetCount: 136000,
-    profilePhoto: 'assets/elonmusk.jpg',
+    profilePhoto: "assets/elonmusk.jpg",
+    bannerPhoto: "assets/elonmusk-cover.jpeg",
     tweets:[{
         tweet:'I admit to judging books by their cover',
         time: '5/10/2025 17:11:20'
@@ -39,6 +40,7 @@ var accountUsers = {
     followers: 21800000,    
     tweetCount: 115000,
     profilePhoto: "assets/billgates.jpg",
+    bannerPhoto: "assets/billgates-cover.jpeg",
     tweets:[{
         tweet:'Everybody asks, how is the next Windows coming along? But nobody asks how is Bill?',
         time: '2/10/2025 00:11:20'
@@ -115,6 +117,11 @@ const gatesCopy = gatesUserName.cloneNode(true);
 const checkMarkCopy = checkMark.cloneNode(true); 
 photoWrapper.appendChild(gatesCopy); 
 photoWrapper.appendChild(checkMarkCopy); 
+
+//Banner photo
+var bannerPhoto = document.getElementsByClassName('collage')[0];
+bannerPhoto.src = selectedUser.bannerPhoto;
+
 
 //User Handle
 var userHandle = document.getElementsByClassName("user-handle")[0];
