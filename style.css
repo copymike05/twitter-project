@@ -231,6 +231,13 @@
   color: grey;
 }
 
+.tweet-icons{
+   position: relative;
+  display: flex;
+  gap: 65px;
+  bottom: 30px;
+}
+
 /*Media Queries*/
 @media screen and (min-width: 500px) {
     #main-container {
