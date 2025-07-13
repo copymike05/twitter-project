@@ -1,7 +1,6 @@
 *{
  font-family: 'Roboto';  
   box-sizing: border-box;
- 
 }
 
 #container{
@@ -200,7 +199,6 @@
 .tweet-section{
   display: flex;
   padding: 10px;
-  /*background-color: lightgreen; /*This will be changed or removed*/
   border: solid;
   height: 120px;
 }
@@ -227,12 +225,12 @@
 
 .tweet-text{
   position: relative;
-  bottom: 23px;
+  bottom: 25px;
   color: grey;
 }
 
 .tweet-icons{
-   position: relative;
+  position: relative;
   display: flex;
   gap: 65px;
   bottom: 30px;
