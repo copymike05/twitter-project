@@ -16,15 +16,15 @@ var accountUsers = {
         time: '5/10/2025 17:11:20'
       },
       {
-        tweet:'Out on launch pad, engine swap underway.',
+        tweet:'On launch pad, engine swap underway',
         time: '9/10/2024 10:01:53' 
       },
       {
-        tweet:'In 2020, I did not read a book every hour.',
+        tweet:'Next stop -- the moon',
         time: '8/30/2024 11:09:49' 
       },
       {
-        tweet:'In 2020, I read a book every hour.',
+        tweet:`Paypal's days seem so long ago`,
         time: '6/19/2024 15:11:05' 
       }
       ]    
@@ -42,15 +42,15 @@ var accountUsers = {
     profilePhoto: "assets/billgates.jpg",
     bannerPhoto: "assets/billgates-cover.jpeg",
     tweets:[{
-        tweet:'Everybody asks, how is the next Windows coming along? But nobody asks how is Bill?',
+        tweet:'Heading out of the country for a few weeks',
         time: '2/10/2025 00:11:20'
       },
       {
-        tweet:'Heading to the Gates Foundation headquarters.',
+        tweet:'Heading to the Gates Foundation',
         time: '9/10/2024 00:01:53' 
       },
             {
-        tweet:'Should I start tweeting memes? Let me know in a comment.',
+        tweet:'Should I start tweeting memes?',
         time: '8/04/2024 16:33:09'
       },
             {
@@ -121,7 +121,7 @@ photoWrapper.appendChild(checkMarkCopy);
 //Banner photo
 var bannerPhoto = document.getElementsByClassName('collage')[0];
 bannerPhoto.src = selectedUser.bannerPhoto;
-
+bannerPhoto.alt = `Banner photo for ${selectedUser.displayName}`;
 
 //User Handle
 var userHandle = document.getElementsByClassName("user-handle")[0];
@@ -165,6 +165,9 @@ const months = [
 
 //Top row of text in tweet box
 var tweetSection = document.getElementsByClassName("tweet-details");
+var tweetParagraphs = document.getElementsByClassName("tweet-text");
+var tweetIcons = document.getElementsByClassName("tweet-icons");
+
 for (let i = 0; i < tweetSection.length; i++) {
   var rowCounter = i;
   var tweetText = document.createElement("h4");
@@ -188,23 +191,25 @@ for (let i = 0; i < tweetSection.length; i++) {
        const monthAbbrev = months[date.getMonth()].slice(0, 3);
        tweetDate.textContent = `${monthAbbrev} ${date.getDate()}`;     
        tweetSection[i].appendChild(tweetDate);
-       
-       //Actual Tweet
-       console.log('this was hit');
        break;
      }  
   }
 
-  var tweetParagraphs = document.getElementsByClassName("tweet-text");
-
-  for (let i = 0; i < tweetParagraphs.length; i++) {
   tweetParagraphs[i].innerHTML = '';
   var tweetText = document.createElement("p");
   tweetText.textContent = selectedUser.tweets[i].tweet;
   tweetParagraphs[i].appendChild(tweetText);
-  }
+ 
+    tweetIcons[i].innerHTML = `
+    <i class="fa fa-comment"></i>
+    <i class="fa fa-retweet"></i>
+    <i class="fa fa-check-circle"></i>
+    <i class="fa fa-heart"></i>`;
+
 
 }
+
+
 
 
 //Functions
