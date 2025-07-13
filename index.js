@@ -34,7 +34,7 @@ var accountUsers = {
     firstName: "Bill",
     displayName: "Bill Gates",
     city: "Seattle, WA",
-    intro: "Interested in the latest technology since 1970. Co-founder of Microsoft with Paul Allen",
+    intro: "Co-founder of Microsoft with Paul Allen",
     timestamp: "March 4, 2021",
     following: 210,
     followers: 21800000,    
@@ -61,12 +61,10 @@ var accountUsers = {
   }
 };
 
-
-
+//
 var urlParams = new URLSearchParams(window.location.search);
 var userParam = urlParams.get('user');
 var selectedUser = accountUsers[userParam] || accountUsers.user1; 
-
 
 function userElon() {
     var urlParams = new URLSearchParams();
@@ -74,7 +72,6 @@ function userElon() {
     window.location.href = "https://copymike05.github.io/twitter-project/?" + urlParams.toString();
 };
 
-// function to change URL to user 2
 function userBill() {
     var urlParams = new URLSearchParams();
     urlParams.set("user", "user2");
@@ -150,8 +147,6 @@ followersUser1.innerHTML = `<strong class="follower-figures">${formatNumber(sele
 followerDetails.appendChild(followersUser1);
 
 //Tweets
-
-//Photo is being applied in every Twitter container
 var tweetPhoto = document.getElementsByClassName("tweet-avatar");
 tweetPhoto.src = selectedUser.profilePhoto;
 for (let i = 0; i < tweetPhoto.length; i++) {
@@ -184,35 +179,25 @@ for (let i = 0; i < tweetSection.length; i++) {
   tweetHandle.textContent = `${selectedUser.userName}`;
   tweetSection[i].appendChild(tweetHandle);
   
-   for (let i = 0; i < selectedUser.tweets.length; i++) {
-     if(i === rowCounter){
-       var tweetDate = document.createElement("p");
-       const date = new Date(`${selectedUser.tweets[i].time}`); 
-       const monthAbbrev = months[date.getMonth()].slice(0, 3);
-       tweetDate.textContent = `${monthAbbrev} ${date.getDate()}`;     
-       tweetSection[i].appendChild(tweetDate);
-       break;
-     }  
-  }
+  if (selectedUser.tweets[i]) {
+    const date = new Date(selectedUser.tweets[i].time);
+    const monthAbbrev = months[date.getMonth()].slice(0, 3);
+    const tweetDate = document.createElement("p");
+    tweetDate.textContent = `${monthAbbrev} ${date.getDate()}`;
+    tweetSection[i].appendChild(tweetDate);
 
-  tweetParagraphs[i].innerHTML = '';
-  var tweetText = document.createElement("p");
-  tweetText.textContent = selectedUser.tweets[i].tweet;
-  tweetParagraphs[i].appendChild(tweetText);
+    tweetParagraphs[i].innerHTML = '';
+    var tweetText = document.createElement("p");
+    tweetText.textContent = selectedUser.tweets[i].tweet;
+    tweetParagraphs[i].appendChild(tweetText);
  
     tweetIcons[i].innerHTML = `
     <i class="fa fa-comment"></i>
     <i class="fa fa-retweet"></i>
     <i class="fa fa-check-circle"></i>
     <i class="fa fa-heart"></i>`;
-
-
+  }
 }
-
-
-
-
-//Functions
 
 //Follower formatting
 function formatNumber(num)  {
@@ -221,19 +206,6 @@ function formatNumber(num)  {
   } else if (num >= 1000) {
     return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
   }
-  //By default, returns number as is if < 1000
   return num.toString();
 };
 
-// console.log(window.location.href);
-//console.log(accountUsers.user1.displayName);
-//console.log(users[0].displayName)
-
-//Console.log playing
-//console.log(accountUsers.user1.tweets[0].tweet); 
-
-
-//https://kaidoso.github.io/dynamic-twitter/assets/billgates-cover.jpeg
-//https://kaidoso.github.io/dynamic-twitter/assets/elonmusk.jpg
-//https://kaidoso.github.io/dynamic-twitter/assets/billgates
-//https://kaidoso.github.io/dynamic-twitter/assets/elonmusk.jpg
