@@ -4,7 +4,7 @@ var accountUsers = {
     firstName: "Elon",
     displayName: "Elon Musk", 
     city: "Austin, TX",
-    intro: "Co-founder of Tesla, PayPal and ChatGPT.",
+    intro: "Co-founder of Tesla, PayPal and ChatGPT",
     timestamp: "March 4, 2021",
     following: 103,
     followers: 47900000,
